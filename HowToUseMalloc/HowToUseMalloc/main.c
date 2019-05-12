@@ -37,7 +37,7 @@ int main(int argc, const char * argv[]) {
     }
     for(index=0; index < totalNumbers;index++)
     {
-        sum=sum + *(memoryAddress+index);
+        sum = sum + *(memoryAddress+index);
         printf("la direccion de memoria de %d es: %u \n", *(memoryAddress+index), ((unsigned int)memoryAddress)+index);
     }
     printf("\nla suma de todos los numeros es: %d \n", sum);

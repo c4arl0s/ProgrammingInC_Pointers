@@ -21,19 +21,19 @@ int main(int argc, char **argv)
     int integerVariable;
     
     // pointer variable for malloc below */
-    int *direccionMemoria;
+    int *memoryAddress;
     
     // obtain a block big enough for one int from the heap */
-    direccionMemoria = malloc(sizeof(int));
+    memoryAddress = malloc(sizeof(int));
     
     printf("&globalVariable is allocated in = %u\n", (unsigned int)&globalVariable);
     printf("&staticVariable is allocated in = %u\n", (unsigned int)&staticVariable);
     printf("&integerVariable is allocated in = %u\n", (unsigned int)&integerVariable);
-    printf("&direccionMemoria is allocated in = %u\n", (unsigned int)&direccionMemoria);
-    printf("direccionMemoria is allocated in = %u\n", (unsigned int)direccionMemoria);
+    printf("&direccionMemoria is allocated in = %u\n", (unsigned int)&memoryAddress);
+    printf("the value of direccionMemoria is = %u\n", (unsigned int)memoryAddress);
     printf("main is allocated in = %u\n", (unsigned int)main);
     
-    free(direccionMemoria);
+    free(memoryAddress);
     
     return 0;
 }
