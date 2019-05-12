@@ -153,7 +153,7 @@ int main(int argc, const char * argv[]) {
     // declara un apuntador
     int *memoryAddress;
     
-    printf(" Ingresa el total de numeros:");
+    printf("Ingresa el total de numeros:");
     scanf("%d", &totalNumbers);
     
     sizeDataTypeInt=sizeof(int);
@@ -171,9 +171,9 @@ int main(int argc, const char * argv[]) {
         printf("Ingresa un número :");
         scanf("%d",memoryAddress+index);
     }
-    for(index=0; index<totalNumbers;index++)
+    for(index=0; index < totalNumbers;index++)
     {
-        sum=sum+*(memoryAddress+index);
+        sum=sum + *(memoryAddress+index);
         printf("la direccion de memoria de %d es: %u \n", *(memoryAddress+index), ((unsigned int)memoryAddress)+index);
     }
     printf("\nla suma de todos los numeros es: %d \n", sum);
@@ -183,14 +183,14 @@ int main(int argc, const char * argv[]) {
 ```
 
 ``` console
- Ingresa el total de numeros:3
+Ingresa el total de numeros:3
 Tamaño del tipo dato int es: 4 bytes
 Ingresa un número :1
 Ingresa un número :2
 Ingresa un número :3
-la direccion de memoria de 1 es: 7395440 
-la direccion de memoria de 2 es: 7395441 
-la direccion de memoria de 3 es: 7395442 
+la direccion de memoria de 1 es: 5303392 
+la direccion de memoria de 2 es: 5303393 
+la direccion de memoria de 3 es: 5303394 
 
 la suma de todos los numeros es: 6 
 Program ended with exit code: 0
