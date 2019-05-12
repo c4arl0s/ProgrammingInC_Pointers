@@ -1,6 +1,7 @@
 # Index
 
 [How pointers work](https://github.com/c4arl0s/ProgrammingInC_Pointers/blob/master/README.md#how-pointers-work)
+
 [Pointer to pointer](https://github.com/c4arl0s/ProgrammingInC_Pointers/blob/master/README.md#pointer-to-pointer)
 
 
