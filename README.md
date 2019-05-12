@@ -65,6 +65,24 @@ const char ***cpp = &cp;
 
 Now cpp stores the address of cp. So it has value 55 (based on the example above), and you guessed it: it is itself stored at address 60.
 
+# Printing the address of a variable
+
+``` c
+#include<stdio.h>
+
+int main()
+{
+	int integerVariable=1;
+
+	printf("imprimiendo direccion de integerVariable = %u \n", (unsigned int)&integerVariable);
+	return 0;
+
+}
+```
+
+// In C language address operator & is used to determine the address of a variable. 
+// The & (immediately preceding a variable name) returns the address of the variable associated with it.
+
 # Delcaring and alalysing pointers
 
 ``` c
