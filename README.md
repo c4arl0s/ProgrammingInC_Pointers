@@ -318,3 +318,13 @@ add to the ways in which they can be go wrong. So why are pointers still used so
 - The reason is that pointers are used to bodge into C some vital features which are missing from the original language: arrays, strings, & writeable function parameters. They can also be used to optimize a program to run faster or use less memory that it would otherwise.
 
 - One of the complications when reading C programs is that a pointer could be being used for any, several or all of these different reasons with little or no distinction in the language so, unless the programmer has put in helpful comments, one has to follow through the program to see what each pointer is used for in order to work out why it is there instead of a plain simple variable.
+
+# Pointer to pointer
+
+Stack overflow answers:
+
+1. Often a pointer to pointer is used when you want to pass to a function a pointer that the function can change.
+
+2. You can use them when you need to return a pointer to some memory on the heap, but not using the return value.
+
+3. Since we can have pointers to int, and pointers to char, and pointers to any structures we've defined, and in fact pointers to any type in C, it shouldn't come as too much of a surprise that we can have pointers to other pointers. If we're used to thinking about simple pointers, and to keeping clear in our minds the distinction between the pointer itself and what it points to, we should be able to think about pointers to pointers, too, although we'll now have to distinguish between the pointer, what it points to, and what the pointer that it points to points to. (And, of course, we might also end up with pointers to pointers to pointers, or pointers to pointers to pointers to pointers, although these rapidly become too esoteric to have any practical use.)
