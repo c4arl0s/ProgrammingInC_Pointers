@@ -172,6 +172,7 @@ int main(int argc, char **argv)
 direccionMemoria = 7501232
 main = 3600
 Program ended with exit code: 0
+```
 
 
 # Why C has Pointers
