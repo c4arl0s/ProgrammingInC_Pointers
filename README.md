@@ -119,6 +119,59 @@ direccionMemoria = 0x1028352b0
 main = 0x100000e30
 Program ended with exit code: 0
 ```
+# Lets present the values with (unsigned int)
+
+``` objective-c
+//
+//  main.c
+//  PrintingPointers
+//
+//  Created by Carlos Santiago Cruz on 5/11/19.
+//  Copyright © 2019 Carlos Santiago Cruz. All rights reserved.
+//
+
+#include <stdio.h>
+#include <stdlib.h>
+
+/* a global variable, stored in BSS segment */
+int globalVariable = 0;
+
+int main(int argc, char **argv)
+{
+    // static local variable, stored in BSS segment */
+    static int staticVariable;
+    
+    // automatic variable, stored on stack */
+    int integerVariable;
+    
+    // pointer variable for malloc below */
+    int *direccionMemoria;
+    
+    // obtain a block big enough for one int from the heap */
+    direccionMemoria = malloc(sizeof(int));
+    
+    printf("&globalVariable = %u\n", (unsigned int)&globalVariable);
+    printf("&staticVariable = %u\n", (unsigned int)&staticVariable);
+    printf("&integerVariable = %u\n", (unsigned int)&integerVariable);
+    printf("&direccionMemoria = %u\n", (unsigned int)&direccionMemoria);
+    printf("direccionMemoria = %u\n", (unsigned int)direccionMemoria);
+    printf("main = %u\n", (unsigned int)main);
+    
+    free(direccionMemoria);
+    
+    return 0;
+}
+```
+
+
+```console
+&globalVariable = 4136
+&staticVariable = 4140
+&integerVariable = 4022334620
+&direccionMemoria = 4022334608
+direccionMemoria = 7501232
+main = 3600
+Program ended with exit code: 0
 
 
 # Why C has Pointers
