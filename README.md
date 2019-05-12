@@ -73,14 +73,14 @@ Now cpp stores the address of cp. So it has value 55 (based on the example above
 
 int main()
 {
-	int *Width;
+	int *chunk;
 
-	Width = (int *)malloc(sizeof(int));
-	*Width = 34;
+	chunk = (int *)malloc(sizeof(int));
+	*chunk = 34;
 
-	printf("Data stored at *Width is %d\n", *Width);
-	printf("Address of Width is %p\n", &Width);
-	printf("Address stored at Width is %p\n", Width);
+	printf("Data stored at *chunk is %d\n", *chunk);
+	printf("Address of chunk is %p\n", &chunk);
+	printf("Address stored at chunk is %p\n", chunk);
 }
 ```
 
