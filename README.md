@@ -1,6 +1,6 @@
 # Index
 
-[# Advantages of using pointers in C]()
+[Advantages of using pointers in C](https://github.com/c4arl0s/ProgrammingInC_Pointers/blob/master/README.md#advantages-of-using-pointers-in-c)
 
 [How pointers work](https://github.com/c4arl0s/ProgrammingInC_Pointers/blob/master/README.md#how-pointers-work)
 
