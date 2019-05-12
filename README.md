@@ -96,12 +96,12 @@ int main(int argc, char **argv)
     // obtain a block big enough for one int from the heap */
     direccionMemoria = malloc(sizeof(int));
     
-    printf("&globalVariable = %u\n", (unsigned int) &globalVariable);
-    printf("&staticVariable = %u\n", (unsigned int) &staticVariable);
-    printf("&integerVariable = %u\n", (unsigned int) &integerVariable);
-    printf("&p = %u\n", (unsigned int) &direccionMemoria);
-    printf("p = %u\n", (unsigned int) direccionMemoria);
-    printf("main = %u\n", (unsigned int) main);
+    printf("&globalVariable = %p\n", &globalVariable);
+    printf("&staticVariable = %p\n", &staticVariable);
+    printf("&integerVariable = %p\n", &integerVariable);
+    printf("&p = %p\n", &direccionMemoria);
+    printf("p = %p\n", direccionMemoria);
+    printf("main = %p\n", main);
     
     free(direccionMemoria);
     
