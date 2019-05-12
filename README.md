@@ -131,6 +131,71 @@ Address stored at chunk is 0x100604fe0
 Program ended with exit code: 0
 ```
 
+# Reserving size of chunk
+
+``` c
+//
+//  main.c
+//  HowToUseMalloc
+//
+//  Created by Carlos Santiago Cruz on 5/11/19.
+//  Copyright © 2019 Carlos Santiago Cruz. All rights reserved.
+//
+
+#include <stdio.h>
+
+int main(int argc, const char * argv[]) {
+    int index;
+    int totalNumbers;
+    int sum=0;
+    int sizeReservedSegment;
+    int sizeDataTypeInt;
+    // declara un apuntador
+    int *memoryAddress;
+    
+    printf(" Ingresa el total de numeros:");
+    scanf("%d", &totalNumbers);
+    
+    sizeDataTypeInt=sizeof(int);
+    sizeReservedSegment=(totalNumbers)*(sizeDataTypeInt);
+    
+    printf("Tamaño del tipo dato int es: %d bytes\n",sizeDataTypeInt);
+    
+    //malloc reserva en memoria el # bytes de la longitud deseada.
+    //devuelve un puntero a la zona de memoria concedida
+    memoryAddress = malloc(sizeReservedSegment);
+    
+    
+    for(index=0; index<totalNumbers;index++)
+    {
+        printf("Ingresa un número :");
+        scanf("%d",memoryAddress+index);
+    }
+    for(index=0; index<totalNumbers;index++)
+    {
+        sum=sum+*(memoryAddress+index);
+        printf("la direccion de memoria de %d es: %u \n", *(memoryAddress+index), ((unsigned int)memoryAddress)+index);
+    }
+    printf("\nla suma de todos los numeros es: %d \n", sum);
+    
+    return 0;
+}
+```
+
+``` console
+ Ingresa el total de numeros:3
+Tamaño del tipo dato int es: 4 bytes
+Ingresa un número :1
+Ingresa un número :2
+Ingresa un número :3
+la direccion de memoria de 1 es: 7395440 
+la direccion de memoria de 2 es: 7395441 
+la direccion de memoria de 3 es: 7395442 
+
+la suma de todos los numeros es: 6 
+Program ended with exit code: 0
+```
+
 
 # Printing pointers
 
