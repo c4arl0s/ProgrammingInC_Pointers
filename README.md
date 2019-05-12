@@ -110,12 +110,12 @@ int main(int argc, char **argv)
 ```
 
 ``` console
-&globalVariable = 4136
-&staticVariable = 4140
-&integerVariable = 4022334620
-&p = 4022334608
-p = 6606096
-main = 3632
+&globalVariable = 0x100001028
+&staticVariable = 0x10000102c
+&integerVariable = 0x7ffeefbff49c
+&p = 0x7ffeefbff490
+p = 0x100615c00
+main = 0x100000e50
 Program ended with exit code: 0
 ```
 
