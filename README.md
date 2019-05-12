@@ -150,12 +150,12 @@ int main(int argc, char **argv)
     // obtain a block big enough for one int from the heap */
     direccionMemoria = malloc(sizeof(int));
     
-    printf("&globalVariable = %u\n", (unsigned int)&globalVariable);
-    printf("&staticVariable = %u\n", (unsigned int)&staticVariable);
-    printf("&integerVariable = %u\n", (unsigned int)&integerVariable);
-    printf("&direccionMemoria = %u\n", (unsigned int)&direccionMemoria);
-    printf("direccionMemoria = %u\n", (unsigned int)direccionMemoria);
-    printf("main = %u\n", (unsigned int)main);
+    printf("&globalVariable is allocated in = %u\n", (unsigned int)&globalVariable);
+    printf("&staticVariable is allocated in = %u\n", (unsigned int)&staticVariable);
+    printf("&integerVariable is allocated in = %u\n", (unsigned int)&integerVariable);
+    printf("&direccionMemoria is allocated in = %u\n", (unsigned int)&direccionMemoria);
+    printf("direccionMemoria is allocated in = %u\n", (unsigned int)direccionMemoria);
+    printf("main is allocated in = %u\n", (unsigned int)main);
     
     free(direccionMemoria);
     
