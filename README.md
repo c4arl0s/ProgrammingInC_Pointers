@@ -68,7 +68,7 @@ Now cpp stores the address of cp. So it has value 55 (based on the example above
 # Printing pointers
 
 ``` c
- //
+//
 //  main.c
 //  PrintingPointers
 //
@@ -80,22 +80,25 @@ Now cpp stores the address of cp. So it has value 55 (based on the example above
 #include <stdlib.h>
 
 /* a global variable, stored in BSS segment */
-int G = 0;
+int globalVariable = 0;
 
 int main(int argc, char **argv)
 {
     // static local variable, stored in BSS segment */
-    static int s;
+    static int staticVariable;
+    
     // automatic variable, stored on stack */
-    int a;
+    int integerVariable;
+    
     // pointer variable for malloc below */
     int *direccionMemoria;
+    
     // obtain a block big enough for one int from the heap */
     direccionMemoria = malloc(sizeof(int));
     
-    printf("&G = %u\n", (unsigned int) &G);
-    printf("&s = %u\n", (unsigned int) &s);
-    printf("&a = %u\n", (unsigned int) &a);
+    printf("&globalVariable = %u\n", (unsigned int) &globalVariable);
+    printf("&staticVariable = %u\n", (unsigned int) &staticVariable);
+    printf("&integerVariable = %u\n", (unsigned int) &integerVariable);
     printf("&p = %u\n", (unsigned int) &direccionMemoria);
     printf("p = %u\n", (unsigned int) direccionMemoria);
     printf("main = %u\n", (unsigned int) main);
