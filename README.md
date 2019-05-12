@@ -67,22 +67,38 @@ Now cpp stores the address of cp. So it has value 55 (based on the example above
 
 # Delcaring and alalysing pointers
 
-``` objective-c
-#include<stdio.h>
-#include<stdlib.h>
+``` c
+//
+//  main.c
+//  DeclaringAndAnalysingPointers
+//
+//  Created by Carlos Santiago Cruz on 5/11/19.
+//  Copyright © 2019 Carlos Santiago Cruz. All rights reserved.
+//
 
-int main()
-{
-	int *chunk;
+#include <stdio.h>
 
-	chunk = (int *)malloc(sizeof(int));
-	*chunk = 34;
-
-	printf("Data stored at *chunk is %d\n", *chunk);
-	printf("Address of chunk is %p\n", &chunk);
-	printf("Address stored at chunk is %p\n", chunk);
+int main(int argc, const char * argv[]) {
+    
+    int *chunk;
+    
+    chunk = malloc(sizeof(int));
+    *chunk = 34;
+    
+    printf("Data stored at *chunk is %d\n", *chunk);
+    printf("Address of chunk is %p\n", &chunk);
+    printf("Address stored at chunk is %p\n", chunk);
+    return 0;
 }
 ```
+
+``` console
+Data stored at *chunk is 34
+Address of chunk is 0x7ffeefbff418
+Address stored at chunk is 0x100604fe0
+Program ended with exit code: 0
+```
+
 
 # Printing pointers
 
