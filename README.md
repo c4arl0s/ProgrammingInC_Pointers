@@ -94,3 +94,19 @@ Now cpp stores the address of cp. So it has value 55 (based on the example above
 
      return 0;
 }
+```
+
+# Why C has Pointers
+
+“What?” & “How?” are the two questions normally answered by C programming articles. This article is on the “Why?”. The reason why something as confusing as pointers are so commonly used in C is rarely mentioned but is very helpful in understanding how to use them. However, just in case you have not yet come across pointers or are not familiar with C at all, I will start with a brief description of what they are (definitions) and how they are used (syntax). Don’t expect lots of that here, there is plenty of that in those standard programming books, just enough make sense of what follows.
+
+### Why?
+
+C was developed when computers were much less powerful than they are today and being very efficient with speed and memory usage was often not just desirable but vital. The raw ability to work with particular memory locations was obviously a useful option to have. A few tasks these days, such as programming microcontrollers, still need this. However most modern programmers do not need such fine control and the complications of using pointers make programs less clear to understand and
+add to the ways in which they can be go wrong. So why are pointers still used so much in C & its successor, C++?
+
+The reason is that pointers are used to bodge into C some vital features which are missing from the original language: arrays, strings, & writeable function parameters. They can also be used to optimize a program to run faster or use less memory that it would otherwise.
+
+One of the complications when reading C programs is that a pointer could be being used for any, several or all of these different reasons with little or no distinction in the language so, unless the programmer has put in helpful comments, one has to follow through the program to see what each pointer is used for in order to work out why it is there instead of a plain simple variable.
+
+I will cover different the uses individually to keep it simple.
