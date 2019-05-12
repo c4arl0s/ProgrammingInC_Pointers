@@ -99,14 +99,15 @@ int main(int argc, char **argv)
     printf("&globalVariable = %p\n", &globalVariable);
     printf("&staticVariable = %p\n", &staticVariable);
     printf("&integerVariable = %p\n", &integerVariable);
-    printf("&p = %p\n", &direccionMemoria);
-    printf("p = %p\n", direccionMemoria);
+    printf("&direccionMemoria = %p\n", &direccionMemoria);
+    printf("direccionMemoria = %p\n", direccionMemoria);
     printf("main = %p\n", main);
     
     free(direccionMemoria);
     
     return 0;
 }
+
 ```
 
 ``` console
