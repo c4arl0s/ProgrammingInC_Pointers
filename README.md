@@ -65,6 +65,23 @@ const char ***cpp = &cp;
 
 Now cpp stores the address of cp. So it has value 55 (based on the example above), and you guessed it: it is itself stored at address 60.
 
+# Pointer operators
+
+``` console
+Operator        Name                    Meaning
+*                                       Used to declare a pointer
+*               Dereference             Used to dereference a pointer
+->              Point-to                Used to access fields of a structure referenced by a pointer
++               Addition                Used to increment a pointer
+-               Subtraction             Used to decrement a pointer
+== !=           Equality, inequality    Compares two pointers
+> >= < <=       Greater than,           Compares two pointers
+                greater than or equal, 
+                less than, 
+                less than or equal
+(data type)     Cast                    To change the type of pointer
+```
+
 # Printing the address of a variable
 
 ``` c
