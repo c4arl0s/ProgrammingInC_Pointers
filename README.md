@@ -50,7 +50,8 @@ Let's assume an 8 bit computer with 8 bit addresses (and thus only 256 bytes of 
 const char *c = "hello";
 ```
 
-  ... defines c to be a pointer to the (read-only) string "hello", and thus contains the value 63. c must itself be stored somewhere: in the example above at location 58. Of course we can not only point to characters, but also to other pointers. E.g.:
+- defines c to be a pointer to the (read-only) string "hello", and thus contains the value 63. 
+- c must itself be stored somewhere: in the example above at location 58. Of course we can not only point to characters, but also to other pointers. E.g.:
 
 ``` objective-c
 const char **cp = &c;
