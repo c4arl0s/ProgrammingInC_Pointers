@@ -106,6 +106,16 @@ int main(int argc, char **argv)
 }
 ```
 
+``` console
+&globalVariable = 4136
+&staticVariable = 4140
+&integerVariable = 4022334620
+&p = 4022334608
+p = 6606096
+main = 3632
+Program ended with exit code: 0
+
+
 # Why C has Pointers
 
 C was developed when computers were much less powerful than they are today and being very efficient with speed and memory usage was often not just desirable but vital. The raw ability to work with particular memory locations was obviously a useful option to have. A few tasks these days, such as programming microcontrollers, still need this. However most modern programmers do not need such fine control and the complications of using pointers make programs less clear to understand and
