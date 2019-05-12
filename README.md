@@ -165,12 +165,12 @@ int main(int argc, char **argv)
 
 
 ```console
-&globalVariable = 4136
-&staticVariable = 4140
-&integerVariable = 4022334620
-&direccionMemoria = 4022334608
-direccionMemoria = 7501232
-main = 3600
+&globalVariable is allocated in = 4136
+&staticVariable is allocated in = 4140
+&integerVariable is allocated in = 4022334620
+&direccionMemoria is allocated in = 4022334608
+direccionMemoria is allocated in = 6395568
+main is allocated in = 3504
 Program ended with exit code: 0
 ```
 
