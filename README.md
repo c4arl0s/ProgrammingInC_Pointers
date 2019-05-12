@@ -45,16 +45,22 @@ Let's assume an 8 bit computer with 8 bit addresses (and thus only 256 bytes of 
 
 
   What you can see here, is that at address 63 the string "hello" starts. So in this case, if this is the only occurrence of "hello" in memory then,
-
-  const char *c = "hello";
+  
+``` objective-c
+const char *c = "hello";
+```
 
   ... defines c to be a pointer to the (read-only) string "hello", and thus contains the value 63. c must itself be stored somewhere: in the example above at location 58. Of course we can not only point to characters, but also to other pointers. E.g.:
 
-  const char **cp = &c;
+``` objective-c
+const char **cp = &c;
+```
 
-  Now cp points to c, that is, it contains the address of c (which is 58). We can go even further. Consider:
+Now cp points to c, that is, it contains the address of c (which is 58). We can go even further. Consider:
 
-  const char ***cpp = &cp;
+```objective-c
+const char ***cpp = &cp;
+```
 
-  Now cpp stores the address of cp. So it has value 55 (based on the example above), and you guessed it: it is itself stored at address 60.
+Now cpp stores the address of cp. So it has value 55 (based on the example above), and you guessed it: it is itself stored at address 60.
 
