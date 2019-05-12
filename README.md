@@ -378,4 +378,19 @@ int main(int argc, const char * argv[]) {
 }
 ```
 
+``` console
+Valor de integerNumber = 10 
+
+valor disponible en  *memoryAddress = 10 
+valor disponible en  **memoryAddressOfMemoryAddres = 10 
+
+la direccion de integerNumber es: 4022334620 
+el valor almacenado en memoryAddress es: 4022334620 
+
+la direccion de memoryAddress es: 4022334608 
+el valor almacenado en memoryAddressOfMemoryAddres es: 4022334608 
+
+Finalmente la direccion de memoryAddressOfMemoryAddres es: 4022334600 
+Program ended with exit code: 0
+```
 
