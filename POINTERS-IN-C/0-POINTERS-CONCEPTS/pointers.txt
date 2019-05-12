@@ -1,0 +1,39 @@
+Pointers.
+
+- Pointers provide an alternative way to pass data between functions.
+    - Recall that up to this point, we have passed all data by value, with one exception.
+    - when we pass data by value, we only pass a copy of the data.
+if we use pointers instead, we have the power to pass the actual variable itself.
+    - That means that a change tha is made in one function can impact what happens in a different function.
+    - Previously, this wasn´t possible!
+- Every file on your computer lives on your disk drive, be it a hard disk drive (HDD) or a solid-state drive (SSD)
+- Disk drives are just storage space; we can´t directly work there. Manipulation and use of data can only take place in RAM, so we have to move data there.
+- Memory is basically a huge array of 8-bit wide bytes. 512mb, 1GB, 2Gb, 8GB.
+- data type int : 4 bytes, etc.
+- Back to this idea of memory as a big array of byte-sized cells.
+- Recall from our discussion of arrays that they not only are useful for storage of information but also for so-called random access.
+    - we can access individual elements of the array by indicating which index location we want.
+- Similarly, each location in memory has an address.
+- There's only one critical thing to remember as we start working with pointers:
+    See images.
+- A pointer, then, is a data item whose
+    - value is a memory address.
+    - type describes the data located at the memory address.
+- As such, pointers allow data structures and/or variables to be shared among functions.
+- Pointers make a computer environment more like the real world.
+- The simplest pointer available to us in C is the NULL pointer.
+    - As you might expect, this pointer points to nothing ( a fact which can actually come in handy!)
+- When you create a pointer and you don´t set its value inmediately, you should always set the value of the pointer to NULL.
+- You can check whether a pointer is NULL using the equality operator (==).
+- Another easy way to create a pointer is to simply extract the address of an already existing variable. We can do this with the address extraction operator (&).
+- The main purpose of a pointer is to allow us to modify or inspect the location to which it points.
+    - We do this by dereferencing the pointer.
+-If we have a pointer-to-char called pc, the *pc is the data that lives at the memory address stored inside the variable pc.
+-Used in this contexts, * is known as the dereference operator.
+-It "goes to the reference" and accesses the data at that memory location, allowing you to manipulate it at will.
+-This is just like visiting your neighbor. Having their address isn´t enough. You need to go to the address and only then can you interact with them.
+- Can you guess what migh happen if we try to dereference a pointer whose value is NULL ?
+- Segmentation fault, Surprisingly, this is actually good behaviour! it defends against accidental dangerous manipulation of unknown pointers. 
+    - That´s why we recommend you set your pointers to NULL inmediately if you aren´t setting them to a known, desired value.
+
+

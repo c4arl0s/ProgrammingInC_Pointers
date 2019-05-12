@@ -1,0 +1,93 @@
+C Programming Pointers and Arrays
+
+In this article, you'll learn about the relation between arrays and pointers, and use them efficiently in your program.
+
+C Programming Arrays and Pointers
+
+Arrays are closely related to pointers in C programming but the important difference between them is that, a pointer variable takes different addresses as value whereas, in case of array it is fixed.
+
+This can be demonstrated by an example:
+
+#include <stdio.h>
+int main()
+{
+    char charArr[4];
+    int i;
+
+    for(i = 0; i < 4; ++i)
+    {
+    printf("Address of charArr[%d] = %u\n", i, &charArr[i]);
+    }
+
+    return 0;
+}
+
+ 
+ When you run the program, the output will be:
+
+ Address of charArr[0] = 28ff44
+ Address of charArr[1] = 28ff45
+ Address of charArr[2] = 28ff46
+ Address of charArr[3] = 28ff47
+ 
+ Note: You may get different address of an array.
+
+ Notice, that there is an equal difference (difference of 1 byte) between any two consecutive elements of array charArr.
+
+ But, since pointers just point at the location of another variable, it can store any address.
+
+ Relation between Arrays and Pointers
+ Consider an array:
+
+ int arr[4];
+ 
+ Relation between arrays and pointers
+  
+  In C programming, name of the array always points to address of the first element of an array.
+
+  In the above example, arr and &arr[0] points to the address of the first element.
+
+  &arr[0] is equivalent to arr
+
+  Since, the addresses of both are the same, the values of arr and &arr[0] are also the same.
+
+  arr[0] is equivalent to *arr (value of an address of the pointer)
+  
+  Similarly,
+
+  &arr[1] is equivalent to (arr + 1) AND, arr[1] is equivalent to *(arr + 1).
+  &arr[2] is equivalent to (arr + 2) AND, arr[2] is equivalent to *(arr + 2).
+  &arr[3] is equivalent to (arr + 3) AND, arr[3] is equivalent to *(arr + 3).
+  .
+  .
+  &arr[i] is equivalent to (arr + i) AND, arr[i] is equivalent to *(arr + i).
+  In C, you can declare an array and can use pointer to alter the data of an array.
+
+  Example: Program to find the sum of six numbers with arrays and pointers
+  #include <stdio.h>
+  int main()
+  {
+        int i, classes[6],sum = 0;
+        printf("Enter 6 numbers:\n");
+        for(i = 0; i < 6; ++i)
+        {
+        /* (classes + i) is equivalent to &classes[i] */
+        scanf("%d",(classes + i));
+
+        /* *(classes + i) is equivalent to classes[i] */
+        sum += *(classes + i);
+        }
+        printf("Sum = %d", sum);
+        return 0;
+  }
+  
+  Output
+
+  Enter 6 numbers:
+  2
+  3
+  4
+  5
+  3
+  4
+  Sum = 21

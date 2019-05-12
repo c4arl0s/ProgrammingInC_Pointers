@@ -1,0 +1,11 @@
+Why You Should Become Proficient with Pointers
+
+Pointers have several uses, including:
+
+• Creating fast and efficient code
+• Providing a convenient means for addressing many types of problems
+• Supporting dynamic memory allocation
+• Making expressions compact and succinct
+• Providing the ability to pass data structures by pointer without incurring a large overhead
+• Protecting data passed as a parameter to a function
+

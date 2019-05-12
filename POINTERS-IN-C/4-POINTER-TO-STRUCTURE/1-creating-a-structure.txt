@@ -1,0 +1,13 @@
+Lets start by creating a structure variable student as shown below.
+
+struct student {
+  char id[15];
+  char firstname[64];
+  char lastname[64];
+  float points;
+};
+
+Now we will create a student structure variable std. For this we will write the following code.
+
+// student structure variable
+struct student std;

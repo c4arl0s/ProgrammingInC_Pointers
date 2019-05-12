@@ -1,0 +1,7 @@
+We use the following syntax to assign a structure variable address to a pointer.
+
+ptrName = &structVarName;
+
+In the following example we are assigning the address of the structure variable std to the structure pointer variable ptr. So, ptr is pointing at std.
+
+direccionMemoria = &std;

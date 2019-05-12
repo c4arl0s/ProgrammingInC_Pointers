@@ -1,0 +1,6 @@
+Following is the syntax to create a pointer for a structure.
+
+struct tagName *ptrName;
+So, to create a pointer for the student structure we will write the following code.
+
+struct student *direccionMemoria;

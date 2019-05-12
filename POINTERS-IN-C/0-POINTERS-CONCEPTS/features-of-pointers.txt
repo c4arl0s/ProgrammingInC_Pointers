@@ -1,0 +1,6 @@
+Features of Pointers:
+
+- By using pointers we can get multiple values from the function, as we know a function can return only one value but by passing arguments as pointers we can get more than one values from the pointer.
+- By using pointers dynamic memory can be created according to the program use. We can save memory from static (compile time) declarations.
+- By using pointers we can design and develop complex data structures like STACK, QUEUE, LINKED LIST etc.
+- Amazing feature of pointes: Pointers provide direct memory access.

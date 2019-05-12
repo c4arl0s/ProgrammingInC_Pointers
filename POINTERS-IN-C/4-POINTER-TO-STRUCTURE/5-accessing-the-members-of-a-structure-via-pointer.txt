@@ -1,0 +1,9 @@
+We use the arrow operator also known as member selection operator -> to access the members of a structure via pointer variable.
+
+Following is the syntax for accessing members of a structure via pointer.
+
+ptrName->member
+
+In the following example we are accessing the firstname member of the student structure via pointer variable ptr.
+
+printf("First Name: %s", direcionMemoria->firstname);

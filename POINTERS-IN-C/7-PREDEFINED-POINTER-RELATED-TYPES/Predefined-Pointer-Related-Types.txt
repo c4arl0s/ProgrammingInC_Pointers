@@ -1,0 +1,3 @@
+size_t												Created to provide a safe type for sizes
+ptrdiff_t											Created to handle pointer arithmetic
+intptr_t and uintprt_t				Used for storing pointer addresses

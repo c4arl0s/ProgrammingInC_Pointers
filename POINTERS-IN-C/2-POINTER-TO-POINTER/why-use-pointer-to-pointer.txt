@@ -1,0 +1,7 @@
+Stack overflow answers:
+
+- Often a pointer to pointer is used when you want to pass to a function a pointer that the function can change.
+
+- You can use them when you need to return a pointer to some memory on the heap, but not using the return value.
+
+- Since we can have pointers to int, and pointers to char, and pointers to any structures we've defined, and in fact pointers to any type in C, it shouldn't come as too much of a surprise that we can have pointers to other pointers. If we're used to thinking about simple pointers, and to keeping clear in our minds the distinction between the pointer itself and what it points to, we should be able to think about pointers to pointers, too, although we'll now have to distinguish between the pointer, what it points to, and what the pointer that it points to points to. (And, of course, we might also end up with pointers to pointers to pointers, or pointers to pointers to pointers to pointers, although these rapidly become too esoteric to have any practical use.)

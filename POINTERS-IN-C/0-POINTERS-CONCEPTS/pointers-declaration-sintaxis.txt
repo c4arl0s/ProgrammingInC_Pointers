@@ -1,0 +1,16 @@
+Pointers :: Declaration and Syntax
+
+- Pointers are declared by using the * in front of the variable identifier. For example:
+    int *ip;
+    float *fp = NULL;
+    This delcares a pointer, ip, to an integer. Let's say we want ip to point to an integer. The second line delares a pointer to a float, but initializes the pointer to point to the NULL pointer. The NULL pointer points to a place in memory that cannot be accessed. NULL is useful when checking for error conditions and many functions return NULL if they fail.
+    int x = 5;
+    int *ip;
+    ip = &x;
+- We first encountered the & operator first in the I/O section. The & operator is to specify the address-of x. Thus, the pointer, ip is pointing to x by assigning the address of x. This is important. You must understand this concept.
+
+- This brings up the question, if pointers contain addresses, then how do I get the actual value of what the pointer is pointing to?   
+    This is solved through the * operator. The * dereferences the pointer to the value. So,
+    printf("%d %d\n", x, *ip);
+    would print 5 5 to the screen.
+- 

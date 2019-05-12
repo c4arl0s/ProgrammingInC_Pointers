@@ -1,0 +1,41 @@
+Pointers in C are easy and fun to learn. Some C programming tasks are performed more easily with pointers, and other tasks, such as dynamic memory allocation, cannot be performed without using pointers. So it becomes necessary to learn pointers to become a perfect C programmer. Let's start learning them in simple and easy steps.
+
+
+Pointers are used (in the C language) in three different ways:
+
+- To create dynamic data structures.
+- To pass and handle variable parameters passed to functions.
+- To access information stored in arrays. (Especially if you work with links).
+
+Pointers are also used by experienced programmers to make the code more efficient and thus faster.
+
+
+
+Let's assume an 8 bit computer with 8 bit addresses (and thus only 256 bytes of memory). This is part of that memory (the numbers at the top are the addresses):
+
+    54   55   56   57   58   59   60   61   62   63   64   65   66   67   68   69           ADDRESS
+  +----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+
+  |    | 58 |    |    | 63 |    | 55 |    |    | h  | e  | l  | l  | o  | \0 |    |         CONTENT
+  +----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+
+         cp             c        cpp                                                        VARIABLE NAME  (written in C) 
+
+  What you can see here, is that at address 63 the string "hello" starts. So in this case, if this is the only occurrence of "hello" in memory then,
+
+  const char *c = "hello";
+
+  ... defines c to be a pointer to the (read-only) string "hello", and thus contains the value 63. c must itself be stored somewhere: in the example above at location 58. Of course we can not only point to characters, but also to other pointers. E.g.:
+
+  const char **cp = &c;
+
+  Now cp points to c, that is, it contains the address of c (which is 58). We can go even further. Consider:
+
+  const char ***cpp = &cp;
+
+  Now cpp stores the address of cp. So it has value 55 (based on the example above), and you guessed it: it is itself stored at address 60.
+
+Dynamic memory allocation:
+
+In some programs, the required memory depends on what the user may enter. In such cases the programmer needs to allocate memory dynamically. This is done by allocating memory at the heap rather than on the stack, where variables usually are stored. (Variables can also be stored in the CPU registers, but that's another matter) Dynamic memory allocation can only be made through pointers, and names (like with common variables) can't be given.
+
+
+

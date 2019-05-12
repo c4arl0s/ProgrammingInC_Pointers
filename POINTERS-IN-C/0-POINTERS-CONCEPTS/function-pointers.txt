@@ -1,0 +1,8 @@
+Function Pointers
+
+pointers can point to data.
+pointers can point to functions.
+
+questions: 
+1.- Use cases ?
+2.- what would be the address of a function.

@@ -1,0 +1,12 @@
+Other examples of function pointer declarations:
+
+int (*f1)(double); 				// Passed a double and returns an int
+void (*f2)(char*); 				// Passed a pointer to char and returns void
+double* (*f3)(int, int); 	// Passed two integers and returns a pointer to a double
+
+Do not confuse functions that return a pointer with function pointers:
+
+int *f4(); 		// declares f4 as a function that returns a pointer to an integer,
+int (*f5)(); 	// f5 is a function pointer that returns an integer.
+int* (*f6)(); //  The variable f6 is a function pointer that returns a pointer to an integer
+

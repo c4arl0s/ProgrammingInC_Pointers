@@ -1,0 +1,125 @@
+
+To understand pointers, it may be worth understanding how normal variables are stored. If you disagree, Click here to move on.
+ What does the following program realy mean?
+
+
+main()
+{
+int Length;     
+}      
+
+n my mind, it means, reserve enough storage to hold an integer and assign the variable name 'Length' to it. The data held in this storage is undefined. Graphically it looks like:
+
+
+(Address) (Data)
+    ---- ----
+    | F1 |   <------- Length
+    |----|----|
+    | F2 |    |       
+    |----|----|
+    | F3 |    |
+    |----|----|
+    | F4 |    |
+    ---------    
+
+To put a known value into 'Length' we code,
+
+main()
+{   
+int Length;
+Length = 20;
+}
+
+the deciamal value 20 (Hex 14) is placed into the storage location.
+
+
+      (Address) (Data)
+        ---- ----
+        | F1 | 00 <------- Length
+        |----|----|
+        | F2 | 00 |
+        |----|----|
+        | F3 | 00 |
+        |----|----|
+        | F4 | 14 |
+        ---------
+
+      main()
+            {
+                int Length;
+                    Length = 20;
+                                              
+                printf("Length is %d\n", Length);
+                printf("Address of Length is %p\n", &Length);
+            }
+                      
+Finally, if the program is expanded to become
+The output would look something like this .....
+    
+        Length is 20
+        Address of Length is 0xF1
+                      
+Please note the '&Length' on the second printf statement. The & means address of Length. If you are happy with this, you should push onto the pointers below.
+
+Pointer definition.
+
+A pointer contains an address that points to data.
+An example of code defining a pointer could be...
+
+      main()
+            {
+            int *Width;
+            }
+A graphical representation could be...
+
+
+      (Address) (Data)
+        ---- ----
+        | F1 |    <------- Width
+        |----|----|
+        | F2 |    |
+        |----|----|
+        | F3 |    |
+        |----|----|
+        | F4 |    |
+        ---------
+
+So far, this variable looks the same as above, the value stored at 'Width' is unknown. To place a value in 'Width' you could code.
+
+main()
+      {
+        int *Width;                                 /* 1 */
+        Width = (int *)malloc(sizeof(int));         /* 2 */
+        *Width = 34;                                /* 3 */
+        }
+
+      (Address) (Data)
+        ---- ----    
+        | F1 | 00 <------- Width   
+        |----|----|               (Data) (Adress)
+        | F2 | 00 |                 ---------
+        |----|----|         -------> 00 | D1 |
+        | F3 | 00 |        |       |----|----|
+        |----|----|  *Width|       | 00 | D2 |
+        | F4 | D1 | -------        |----|----|
+         ---------                 | 00 | D3 |
+        |----|----|
+        | 22 | D4 |
+         ---------
+
+Statements 2 and 3 are important here:
+2) The malloc function reserves some storage and puts the address of the storage into Width.
+
+3) *Width puts a value into the storage pointed to by Width.
+
+Unlike the Length = 20 example above, the storage pointed to by 'Width' does NOT contain 34 (22 in Hex), it contains the address where the value 34 can be found. The final program is...
+
+      main()
+            {
+                int *Width;                               
+                Width  = (int *)malloc(sizeof(int));      
+                *Width = 34;
+                printf("  Data stored at *Width is %d\n", *Width); 
+                printf("       Address of Width is %p\n", &Width);
+                printf("Address stored at Width is %p\n",  Width);
+            }

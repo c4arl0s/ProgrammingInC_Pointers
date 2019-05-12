@@ -1,0 +1,65 @@
+Strings as pointers:
+
+Another way of accessing a contiguous chunk of memory, instead of with an array, is with a pointer.
+
+Since we are talking about strings, which are made up of characters, we'll be using pointers to characters, or rather, char *'s.
+
+However, pointers only hold an address, they cannot hold all the characters in a character array. This means that when we use a char * to keep track of a string, the character array containing the string must already exist (having been either statically- or dynamically-allocated).
+
+Below is how you might use a character pointer to keep track of a string.
+
+char label[] = "Single";
+char label2[10] = "Married";
+char *labelPtr;
+
+labelPtr = label;
+
+We would have something like the following in memory (e.g., supposing that the array label started at memory address 2000, etc.):
+
+label @2000
+------------------------------
+| S | i | n | g | l | e | \0 |
+------------------------------
+
+label2 @3000
+------------------------------------------
+| M | a | r | r | i | e | d | \0 |   |   |
+------------------------------------------
+
+labelPtr @4000
+--------
+| 2000 |
+--------
+
+Note: Since we assigned the pointer the address of an array of characters, the pointer must be a character pointer--the types must match.
+Also, to assign the address of an array to a pointer, we do not use the address-of (&) operator since the name of an array (like label) behaves like the address of that array in this context. That's also why you don't use an ampersand when you pass a string variable to scanf(), e.g,
+
+int id;
+char name[30];
+
+scanf("%d%s", &id, name);
+
+Now, we can use labelPtr just like the array name label. So, we could access the third character in the string with:
+
+printf("Third char is: %c\n", labelPtr[2]);
+
+It's important to remember that the only reason the pointer labelPtr allows us to access the label array is because we made labelPtr point to it. Suppose, we do the following:
+
+labelPtr = label2;
+
+Now, no longer does the pointer labelPtr refer to label, but now to label2 as follows:
+
+label2 @3000
+------------------------------------------
+| M | a | r | r | i | e | d | \0 |   |   |
+------------------------------------------
+
+labelPtr @4000
+--------
+| 3000 |
+--------
+So, now when we subscript using labelPtr, we are referring to characters in label2. The following:
+
+printf("Third char is: %c\n", labelPtr[2]);
+
+prints out r, the third character in the label2 array.

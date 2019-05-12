@@ -1,0 +1,8 @@
+We know that to access a member of a structure we use the . operator.
+
+In the following example we are accessing the members of the student structure.
+
+printf("ID: %s\n", std.id);
+printf("First Name: %s\n", std.firstname);
+printf("Last Name: %s\n", std.lastname);
+printf("Points: %f\n", std.points);

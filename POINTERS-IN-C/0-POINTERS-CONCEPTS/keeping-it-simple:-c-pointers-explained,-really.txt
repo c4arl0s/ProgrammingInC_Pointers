@@ -1,0 +1,600 @@
+Keeping it Simple: C Pointers Explained, Really                                                                               21/07/17 8(43 a.m.
+
+
+
+                                                             Más     Siguiente blog» c.santiago.cruz@gmail.com   Escritorio   Cerrar sesión
+
+
+
+
+   Keeping it Simple
+   Being mindful of best practices in software development fundamentals can be more effective than
+   adopting every latest technology.
+
+
+
+
+   Tuesday, November 20, 2012                                                                   Subscribe Now
+   C Pointers Explained, Really
+   While I was in college, a friend of mine complained that he was                                 Subscribe in a reader
+   confused while programming in C, struggling to learn the syntax for
+   pointers.                                                                                    Blog Archive
+
+   He gave the example of something like: *x=**p++ being ugly and                               ► 2017 (1)
+   unreadable, with too many operations layered on each other, making
+   it hard to tell what was happening. He said he had done a bit of                             ► 2016 (1)
+   programming with assembly language, but he wasn't accustomed to
+                                                                                                ► 2013 (1)
+   the nuances of C.
+                                                                                                ▼ 2012 (1)
+   I wrote the following explanation on our student message board, and
+   I got a lot of good feedback. Some people said that they had been                              ▼ November (1)
+   programming in C for years, but not until they read my post did they                              C Pointers Explained, Really
+   finally understand pointers. So here it is, unearthed from my backups
+   and slightly edited. I hope it helps someone again...
+                                                                                                ► 2010 (5)
+
+                                                                                                ► 2009 (25)
+   Message 1956 (8 left): Thu Jan 25 1990                 2:44am
+   From: Bill! (easterb@ucscb)
+                                                                                                ► 2008 (10)
+   Subject: Okay
+
+                                                                                                ► 2007 (8)
+   Well, if you know assembly, you have a head start
+   on many of the cis freshpersons here. You at least know                                      ► 2006 (3)
+   about memory maps: RAM is a long long array of bytes.
+   It helped me to learn about pointers if I kept this in mind.
+   For some reason, books and instructors talking about
+   pointers want to overlook this.                                                              About Me
+
+                                                                                                                   BILL KARWIN
+   When I have some code:                                                                                        WATSONVILLE,
+                                                                                                                 CALIFORNIA,
+   main()
+   {                                                                                                             UNITED STATES
+   int n;
+   int *p;                                                                                                       Software developer,
+                                                                                                technical writer, project manager.
+   There is a place in my memory that looks like this:                                          View my complete profile
+               :
+   Address:    :                                                                                Labels
+            |-----|
+      0x5100|     |          n is an integer, one machine word big                              mysql (26)
+            |-----|
+      0x5104|     |          p is a pointer, also one word big
+
+http://karwin.blogspot.mx/2012/11/c-pointers-explained-really.html                                                                 Página 1 de 9
+Keeping it Simple: C Pointers Explained, Really                                                          21/07/17 8(43 a.m.
+
+
+            |-----|                                                                 php (12)
+      0x5108|     |          other unused memory
+            |-----|                                                                 best-practices (8)
+               :
+               :                                                                    conference (5)
+   Let's give these variables some values.                                          database (5)
+   I set n to be the number 151.
+                                                                                    programming (4)
+               n = 151;
+                                                                                    software (4)
+   I set the pointer p to point to the integer n.
+                                                                                    architecture (3)
+               p = &n;
+                                                                                    licensing (3)
+   That says, "the value of the variable p is assigned the
+   address of the variable n".                                                      perl (3)
+
+                    :                                                               antipattern (2)
+   Address:         :            Value at that address:
+                 |----|                                                             education (2)
+      0x5100     | 151|      n
+                 |----|                                                             interviewing (2)
+      0x5104     |5100|      p
+                 |----|                                                             sql (2)
+      0x5108     |    ?|
+                 |----|                                                             testing (2)
+                    :
+                    :                                                               writing (2)
+
+   Now I want to print out the value of n, by two ways.                             awk (1)
+
+               printf("n is %d.\n", n);                                             consulting (1)
+               printf("n is %d.\n", *p);
+                                                                                    framework (1)
+   The * operator says, "give me the object at the following address."
+   The object's type is the type that the pointer was declared as.                  games (1)
+   So, since we declared "int *p", the object pointed at will be
+   _assumed_ by C to be an int. In this case, we were careful to                    history (1)
+   make this coincide with what we were pointing at.
+                                                                                    mac (1)
+   Now I want to print out the memory address of n.
+                                                                                    management (1)
+               printf("n is located at $%x.\n", &n);
+                                                                                    movies (1)
+               printf("n is located at $%x.\n", p);
+                                                                                    performance (1)
+   The & operator says, "tell me the address where the following object
+   starts." In this case, it is hex 5100 (I put a '$' before it, to                 python (1)
+   conform to the Assembly notation I am used to).
+   Notice the _value_ of p is an address.                                           rails (1)
+   Hm. Does p have an address? Sure. It is a variable, and all                      scaling (1)
+   variables have their own address. The address of p is hex 5104.
+                                                                                    security (1)
+               printf("p is located at $%x.\n", &p);
+                                                                                    superhero (1)
+   Here we are taking the address of a pointer variable,
+                                                                                    trees (1)
+   using the & operator.
+                                                                                    windows (1)
+   main()
+   {                                                                                wonder woman (1)
+   char name[] = "Bill";
+   char *p;
+   int *q;
+
+   Now we have an array to play with.                Here's how memory looks now:
+
+               |---|
+
+
+http://karwin.blogspot.mx/2012/11/c-pointers-explained-really.html                                           Página 2 de 9
+Keeping it Simple: C Pointers Explained, Really                                  21/07/17 8(43 a.m.
+
+
+    0x5100 |'B'|        "name" is an address constant that has value hex 5100
+           |---|
+    0x5101 |'i'|        char: 1 byte
+           |---|
+    0x5102 |'l'|        char: 1 byte
+           |---|
+    0x5103 |'l'|        char: 1 byte
+           |---|
+    0x5104 |\0 |        char: 1 byte
+           |---|
+    0x5105 |   |        p is a pointer: 1 word
+           |---|
+    0x5109 |   |        q is a pointer: 1 word
+           |---|
+
+              p = name;
+
+   We set p to the value of name. Now p has value hex 5100 too.
+   We can use the * dereferencing operator on p, and get the
+   character 'B' as a result.
+
+   Now what happens if I do this:
+
+              ++p;
+
+   The pointer p is incremented.                  What value does it have now?
+   Hex 5101. Pretty simple.
+
+   Now let's try something irresponsible:
+
+              q = name;
+
+   But q is a pointer to int! If we dereference q, it will take
+   the word (typically 4 bytes) beginning at address "name" (which
+   is hex 5100) and try to convert it to an int. 'B', 'i', 'l', 'l'
+   converted to an int will be some large number, dependant on the
+   bit-ordering algorithm on your machine's architecture. On ucscb,
+   it becomes 1114205292. (to see how, line up the binary representation
+   of the ascii values for those 4 characters, and then run the 32 bits
+   together, and convert that resultant binary number as an integer.)
+
+   What we have just seen here is a key issue of pointers that I
+   mentioned earlier: C assumes that what they are pointing at
+   is an object of the type that the pointer was designed to point at.
+   It is up to the programmer to make sure this happens correctly.
+
+              ++q;
+
+   The int pointer is incremented. What value does it have now?
+   Hex 5104. Huh?!? The answer is simple if you accept the above
+   paragraph. It gets incremented by the size of the object it
+   _thinks_ it is pointing at. It's an int pointer, so incrementing
+   it makes it advance a number of bytes equal to the size of an int.
+
+   Now print the dereferenced value of q (i.e. the value of the object
+   q is pointing to). Well, it's pointing at a null byte, and then
+   the first 3 bytes of the char *p. Now we're all messed up.
+   Nice going. Try to convert _that_ to an integer representation.
+   Well actually, C will do it happily. But it'll be another weird
+
+   number.
+
+
+   main()
+   {
+   int n;
+
+              n = 151;
+              f(n);
+
+
+http://karwin.blogspot.mx/2012/11/c-pointers-explained-really.html                   Página 3 de 9
+Keeping it Simple: C Pointers Explained, Really                      21/07/17 8(43 a.m.
+
+
+   }
+
+   f(x)
+   int x;
+   {
+              printf("%d.\n", x);
+   }
+
+   Here is a simple program that passes an int "by value".
+   That is, it copies the value of n into the new variable x!
+
+              |---|
+       0x5100 |151|     n is an integer
+              |---|
+       0x5104 |151|     x is another integer
+              |---|
+
+   When we mention x, we are using the value at location 5104,
+   and we can change it, read it, whatever, and it won't affect n,
+   the int at location 5100.
+
+   But what if we want to have f() modify the value and then
+   have that new value be available in main()? C does this by
+   passing the variable "by reference".
+
+   main()
+   {
+   int n;
+
+              n = 151;
+              f(&n);
+   }
+
+   f(x)
+   int *x;
+   {
+              printf("%d.\n", *x);
+              *x = 451;
+   }
+
+   Pass the _address_ of n, and declare x as a _pointer_ to int.
+   Actually, this is still passing by value, but the value being
+   passed is the address, not the number.
+
+              |----|
+       0x5100 | 151|      n is an integer
+              |----|
+       0x5104 |5100|      x is a pointer to int
+              |----|
+
+   Now if f() when we make use of *x, we are referring to the
+   value at location 5100. This is the location of n.
+   After the assignment "*x = 451;", this is what we have:
+
+              |----|
+       0x5100 | 451|      n is an integer
+              |----|
+       0x5104 |5100|      x is a pointer to int
+              |----|
+
+   x still points to location 5100, but we have changed the value
+   of the object at that location.
+
+
+
+
+   Well, those are the basics.
+   You mentioned things like "*x=**p++" being ugly and unreadable.
+   Well, yeah, but here is a diagram that may help:
+
+
+http://karwin.blogspot.mx/2012/11/c-pointers-explained-really.html       Página 4 de 9
+Keeping it Simple: C Pointers Explained, Really                                            21/07/17 8(43 a.m.
+
+
+
+
+           |----|         here is a word in memory with initial value 0.
+    0x5100 |   0|         no variable name
+
+           |----|
+    0x5104 | 12|          here is a value, a word in memory.          no variable name.
+           |----|
+    0x5108 |5104|         Here is an int pointer, pointing at the previous word.
+           |----|
+    0x511c |5108|         here is p, a pointer to int pointer.
+           |----|
+    0x5120 |5100|         here is x, a pointer.          guess where it's pointing.
+           |----|
+
+   First let's see what p and x were declared as:
+   int *x;    /* pointer to int */
+   int **p;   /* pointer to pointer.
+
+                       The subordinate pointer is a pointer to int.*/
+
+   You should know now what "*x" means.                 It means, "the value of location
+    5100."
+
+   And you know what "*p" means, "the value of location 5108".
+   Now that value is another address! Okay, let's dereference that
+   address: "**p" and we find (by the declaration) an int.
+
+   Now "*x = **p" looks like, "this int at 5100 gets the value of
+   that int at 5104."
+
+   And what does "**p++" mean? Well, ++ binds tighter than *, so this
+   is equivalent to: *( *( p++ ) )
+
+   Or, "pointer to pointer to int, and by the way, after we're done,
+   p has been incremented. But we looked where it was pointing
+   before it got incremented, so we don't care. Let the next statement
+   worry about it."
+
+
+
+   This content is copyright 2012 by Bill Karwin. I'll share it under the
+   terms of the Creative Commons License, Attribution-NonCommercial-
+   ShareAlike 3.0 Unported.
+   http://creativecommons.org/licenses/by-nc-sa/3.0/
+   Posted by Bill Karwin at 5:24 PM
+
+
+
+
+   22 comments:
+
+             Bushinji said...
+             Great post!
+             I finally got it, thanks a bunch! :)
+             3/28/2014 2:31 PM
+
+
+             Marin Todinov said...
+             Dear Programming Guru,
+
+             You are an absolute legend, ive been programming for 4 years
+             and i have a masters in computer science, your explanation of
+             pointers has helped me increase my efficiency in recursive
+             functions and made a map in my breain of how these basic
+             fundamental structers.
+
+http://karwin.blogspot.mx/2012/11/c-pointers-explained-really.html                             Página 5 de 9
+Keeping it Simple: C Pointers Explained, Really                                      21/07/17 8(43 a.m.
+
+
+
+
+             Not only is your explanation clear, but it is exellant, Thank you
+             So much for your sharing of this fundamental knowledge, i will
+             repay the favour some day and teach someone else like you
+             have me, its the least i can do.
+
+             Thank you again,
+             4/01/2014 5:20 AM
+
+
+             Marin Todinov said...
+             This comment has been removed by the author.
+             4/01/2014 5:20 AM
+
+
+             quantumdude said...
+             You should use "%p" for printing pointers, not "%x", because
+             this can cause problems where the size of an unsigned integer
+             is less than the size of a pointer (i.e. 64-bit Intel PCs). Also, for
+             complete portable, the pointers will need to be cast to void
+             pointers (but this usually isn't a problem and can be ignored).
+             8/08/2014 12:39 PM
+
+
+             Gogus said...
+             Hi,
+             Great explanation. I would add only a few words about pure
+             arrays (passing arrays as function arguments).
+
+             Thanks,
+             Bogdan
+             11/15/2014 12:01 AM
+
+
+             i.love.it said...
+             i think you are wrong when u said:
+             "the first 3 bytes of the char *p"
+
+             p is a character type and only has 1 byte?
+
+             would q actually overlap its own bytes coming after p?
+             11/23/2014 10:44 PM
+
+
+             Bill Karwin said...
+             Hi i.love.it,
+
+             p is not a character, p is a pointer.
+
+             A pointer must be large enough to hold an address of memory.
+             At the time I wrote this article, pointers were 4 bytes. Look at
+             the addresses, p is stored in the 4 bytes starting at 0x5105,
+             and q is stored in the 4 bytes starting at 0x5109.
+
+             So incrementing q did cause it to point to a space of 4 bytes
+             starting at 0x5104, which includes the null at the end of the
+             string, and part of the pointer p.
+
+http://karwin.blogspot.mx/2012/11/c-pointers-explained-really.html                       Página 6 de 9
+Keeping it Simple: C Pointers Explained, Really                                   21/07/17 8(43 a.m.
+
+
+             11/24/2014 9:44 AM
+
+
+             danmux said...
+             Great explanation. I would only add something about the
+             variable names themselves don't actually exist when the
+             program runs, that they are just handy readable tokens for the
+             human, and the compiler maintains a symbol table to convert
+             them to addresses. This has been a common source of
+             confusion in my experience.
+             11/24/2014 11:23 PM
+
+
+             Chase S said...
+             Really, no one teaches it like this?
+
+             I figured this out many years ago, and have tried explaining it
+             to many of my fellow students, perhaps I will just link them
+             here from now on.
+
+             Good work!
+             11/25/2014 4:37 AM
+
+
+             Bill Karwin said...
+             @danmux, thanks, that's a good point. I originally wrote that
+             post for someone who said he was already familiar with
+             assembly programming, so I figured that point about identifiers
+             not being real in the compiled code was understood.
+
+             @Chase S, thanks! You may even copy and distribute this post
+             if you wish, under the license terms I mention at the end.
+             11/25/2014 8:09 AM
+
+
+             Gathogo said...
+             Very very well explained!!
+             Thanks
+             11/25/2014 8:52 PM
+
+
+             Anthony Cesaro said...
+             First of all, thanks for the clear and concise explanation! I've
+             been finding a lot of different attempts to better explain the
+             concept and use of pointers and they all provide a good
+             alternative to the way they are described in an academic
+             context.
+
+             In your final diagram that explains how *x=**p++ works,
+             shouldn't the last two addresses be 0x510c and 0x5110 instead
+             of 0x511c and 0x5120? I guess it doesn't matter if those are
+             just arbitrary addresses, but to be consistent with the
+             addresses above it I would think you would just add 4 bytes to
+             them since they are pointers (4 bytes at the time of you writing
+             this article as mentioned).
+
+             I'm still learning this stuff on the side, as I am not a full-time
+
+http://karwin.blogspot.mx/2012/11/c-pointers-explained-really.html                    Página 7 de 9
+Keeping it Simple: C Pointers Explained, Really                                 21/07/17 8(43 a.m.
+
+
+
+             programmer by trade (Unix systems engineer), but I'm trying
+             to beef up my understanding of such lower level concepts to
+             improve my troubleshooting and debugging abilities. Let me
+             know if what I suggested as a correction isn't correct. :)
+             6/21/2015 9:16 AM
+
+
+             Bill Karwin said...
+             @Anthony Cesaro:
+
+             Yes, you're right, that's a mistake on my part. If the addresses
+             were contiguous, the next one 4 bytes after 0x5108 would be
+             0x510c. Good catch.
+
+             But in practice, variables might not be allocated contiguously.
+             They might be, but it's a detail handled by the operating
+             system, and it might be implemented differently on another
+             system. So you shouldn't assume variables are contiguous.
+             6/25/2015 3:38 PM
+
+
+             Chattrawit S. said...
+             OMG! Finally I found well-explained one. Thank you so much!
+             7/09/2015 12:55 AM
+
+
+             Rishikesh Fanse said...
+             nice one dude
+             12/13/2015 2:36 AM
+
+
+             akmal niazi khan said...
+             This blog awesome and i learn a lot about programming from
+             here.The best thing about this blog is that you doing from
+             beginning to experts level.
+
+             Love from
+             3/27/2016 10:35 AM
+
+
+             Priyansh Ramnani said...
+             Thanks a lot sir! :)
+             I had a great difficulty understanding pointers
+             This made my concept crystal clear!!
+
+             6/30/2016 9:44 AM
+
+
+             Prateek Pandey said...
+             Wow great one.
+
+             I found http://thecguru.com/pointer-basics-c/ helpful too.
+             10/12/2016 11:27 AM
+
+
+             Bill Karwin said...
+
+
+http://karwin.blogspot.mx/2012/11/c-pointers-explained-really.html                  Página 8 de 9
+Keeping it Simple: C Pointers Explained, Really                                    21/07/17 8(43 a.m.
+
+
+
+             Thanks for the link Prateek, that looks like a good article. It has
+             nice illustrations too. My article suffers from the fact that I
+             originally wrote it a long time ago in a text-only online
+             community.
+             10/13/2016 4:05 PM
+
+
+             Prateek Pandey said...
+             Yes, Bill it is.
+
+             Consider mentioning it in your article
+             10/17/2016 12:56 AM
+
+
+             Michael Fulton said...
+             Thanks for this excellent read. I'm going to let the Qt API
+             introduce me to cpp (which I know isn't "real" cpp). C and cpp
+             remind me of Node JavaScript in the sense that it will let you
+             shoot yourself in the foot if you don't make good choices.
+             Pointers are something I haven't dealt with before and this
+             made it crystal clear. Fwiw I appreciated original formatting. :)
+             12/21/2016 12:47 AM
+
+
+             Sujitkumar said...
+             Nice tutorial. Thanks for sharing the valuable info about c
+             Training. it’s really helpful. Who want to learn c language this
+             blog most helpful. Keep sharing on updated tutorials…..
+             5/31/2017 4:21 AM
+
+
+   Post a Comment
+
+   Links to this post
+
+   Create a Link
+
+   Newer Post                                     Home               Older Post
+
+   Subscribe to: Post Comments (Atom)
+
+
+
+
+http://karwin.blogspot.mx/2012/11/c-pointers-explained-really.html                     Página 9 de 9
+

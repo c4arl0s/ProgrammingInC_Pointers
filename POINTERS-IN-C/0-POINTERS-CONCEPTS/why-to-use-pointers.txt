@@ -1,0 +1,9 @@
+Pointers are used (in the C language) in three different ways:
+
+To create dynamic data structures.
+To pass and handle variable parameters passed to functions.
+To access information stored in arrays. (Especially if you work with links).
+
+Pointers are also used by experienced programmers to make the code more efficient and thus faster.
+
+

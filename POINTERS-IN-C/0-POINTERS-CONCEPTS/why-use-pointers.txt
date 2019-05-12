@@ -1,0 +1,15 @@
+Why use pointers:
+
+Pointers are necessary for dynamic memory location, many data structures, and efficient handling of large amounts of data. Without pointers, you'd have to allocate all the program data globally or in functions or the equivalent, and you'd have no recourse if the amount of data grew beyond what you had originally allowed for. I hesitate to use absolutes here, but as far as I know all modern computer languages have pointers in some form or other.
+
+In most languages that use pointers, there are certain sorts of references that are pointers, and perhaps certain sorts of references that aren't, and there is no further notational difference. A Lisp cons cell is a pair of pointers, although a fixnum is not a pointer. In Java, the variable used for the instance of a class is a pointer, but an int isn't. The language syntax doesn't reflect that.
+
+C is unusual in that pointers are optional, explicit, and allow explicit pointer arithmetic. It is perfectly possible to write struct foo bar; struct foo * baz;, and once you've allocated memory for baz you can use both bar and baz to represent struct foos. Since pointers are optional, it is useful to have notational differences. (It's essential in C++ for smart pointers, as given boost::shared_ptr<foo> bar;, bar.reset() has one meaning and bar->reset() is likely to have a much
+different one.)
+
+(Actually, explicit pointers were often used in other languages when C was originally being developed, such as ^ in Pascal. C is an older language than most in common use today, and it shows.)
+
+One of C's design goals was to write Unix in, and therefore it needed to handle memory locations in a detailed manner. (C is actually one of a family of system implementation languages common when it was being designed, another example being Cybol for Control Data computers. C is the one that became a big hit.) Therefore, it is possible to manipulate C pointers directly, assigning memory addresses and calculating new ones. This also led to some design decisions in C. C arrays are based heavily on pointer arithmetic, and indeed an array decays into a pointer in very many situations. Passing variables to C functions by reference is done by pointer. There was no strong need for arrays and passing variables by reference in the form that other contemporary languages had, so C didn't get those.
+
+So, the answer is that, in most languages nowadays, you use pointers constantly without being reminded of the fact. In C, and to a lesser extent C++, you use pointers either to do low-level things, or as accomplish higher-level things that there's no special notation for.
+
