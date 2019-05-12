@@ -240,19 +240,19 @@ int main(int argc, char **argv)
     int integerVariable;
     
     // pointer variable for malloc below */
-    int *direccionMemoria;
+    int *memoryAddress;
     
     // obtain a block big enough for one int from the heap */
-    direccionMemoria = malloc(sizeof(int));
+    memoryAddress = malloc(sizeof(int));
     
     printf("&globalVariable is allocated in = %u\n", (unsigned int)&globalVariable);
     printf("&staticVariable is allocated in = %u\n", (unsigned int)&staticVariable);
     printf("&integerVariable is allocated in = %u\n", (unsigned int)&integerVariable);
-    printf("&direccionMemoria is allocated in = %u\n", (unsigned int)&direccionMemoria);
-    printf("the value of direccionMemoria is = %u\n", (unsigned int)direccionMemoria);
+    printf("&direccionMemoria is allocated in = %u\n", (unsigned int)&memoryAddress);
+    printf("the value of direccionMemoria is = %u\n", (unsigned int)memoryAddress);
     printf("main is allocated in = %u\n", (unsigned int)main);
     
-    free(direccionMemoria);
+    free(memoryAddress);
     
     return 0;
 }
@@ -264,7 +264,7 @@ int main(int argc, char **argv)
 &staticVariable is allocated in = 4140
 &integerVariable is allocated in = 4022334620
 &direccionMemoria is allocated in = 4022334608
-the value of direccionMemoria is = 5534368
+the value of direccionMemoria is = 5354912
 main is allocated in = 3504
 Program ended with exit code: 0
 ```
