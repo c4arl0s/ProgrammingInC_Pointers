@@ -65,6 +65,25 @@ const char ***cpp = &cp;
 
 Now cpp stores the address of cp. So it has value 55 (based on the example above), and you guessed it: it is itself stored at address 60.
 
+# Delcaring and alalysing pointers
+
+``` objective-c
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+	int *Width;
+
+	Width = (int *)malloc(sizeof(int));
+	*Width = 34;
+
+	printf("Data stored at *Width is %d\n", *Width);
+	printf("Address of Width is %p\n", &Width);
+	printf("Address stored at Width is %p\n", Width);
+}
+```
+
 # Printing pointers
 
 ``` c
