@@ -68,16 +68,30 @@ Now cpp stores the address of cp. So it has value 55 (based on the example above
 # Printing the address of a variable
 
 ``` c
-#include<stdio.h>
+//  main.c
+//  PrintingTheAddressOfaVariable
+//
+//  Created by Carlos Santiago Cruz on 5/11/19.
+//  Copyright © 2019 Carlos Santiago Cruz. All rights reserved.
+//
 
-int main()
-{
-	int integerVariable=1;
+#include <stdio.h>
 
-	printf("imprimiendo direccion de integerVariable = %u \n", (unsigned int)&integerVariable);
-	return 0;
-
+int main(int argc, const char * argv[]) {
+    
+    int integerVariable=1;
+    
+    // In C language address operator & is used to determine the address of a variable.
+    // The & (immediately preceding a variable name) returns the address of the variable associated with it.
+    printf("integerVariable address = %p \n", &integerVariable);
+    
+    return 0;
 }
+```
+
+```console
+integerVariable address = 0x7ffeefbff41c 
+Program ended with exit code: 0
 ```
 
 // In C language address operator & is used to determine the address of a variable. 
