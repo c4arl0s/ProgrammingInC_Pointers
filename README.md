@@ -34,11 +34,15 @@ When a C program is compiled, it works with three types of memory:
 
 Let's assume an 8 bit computer with 8 bit addresses (and thus only 256 bytes of memory). This is part of that memory (the numbers at the top are the addresses):
 
+``` console
+
     54   55   56   57   58   59   60   61   62   63   64   65   66   67   68   69           ADDRESS
   +----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+
   |    | 58 |    |    | 63 |    | 55 |    |    | h  | e  | l  | l  | o  | \0 |    |         CONTENT
   +----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+
          cp             c        cpp                                                        VARIABLE NAME  (written in C) 
+```
+
 
   What you can see here, is that at address 63 the string "hello" starts. So in this case, if this is the only occurrence of "hello" in memory then,
 
