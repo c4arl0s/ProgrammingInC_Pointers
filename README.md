@@ -1,7 +1,7 @@
 # ProgrammingInC_Pointers
 ProgrammingInC_Pointers
 
-Advantages of using pointers in C
+# Advantages of using pointers in C
 
 Okay. Here are the advantages of pointers as I see it.
 1. Pointers allow you to implement sharing without copying i.e. pass by reference v/s pass by copying. This allows a tremendous advantage when you are passing around big arrays as arguments to functions.
