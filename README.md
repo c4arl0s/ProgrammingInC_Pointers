@@ -245,12 +245,12 @@ int main(int argc, char **argv)
     // obtain a block big enough for one int from the heap */
     direccionMemoria = malloc(sizeof(int));
     
-    printf("&globalVariable = %p\n", &globalVariable);
-    printf("&staticVariable = %p\n", &staticVariable);
-    printf("&integerVariable = %p\n", &integerVariable);
-    printf("&direccionMemoria = %p\n", &direccionMemoria);
-    printf("direccionMemoria = %p\n", direccionMemoria);
-    printf("main = %p\n", main);
+    printf("&globalVariable is allocated in = %u\n", (unsigned int)&globalVariable);
+    printf("&staticVariable is allocated in = %u\n", (unsigned int)&staticVariable);
+    printf("&integerVariable is allocated in = %u\n", (unsigned int)&integerVariable);
+    printf("&direccionMemoria is allocated in = %u\n", (unsigned int)&direccionMemoria);
+    printf("the value of direccionMemoria is = %u\n", (unsigned int)direccionMemoria);
+    printf("main is allocated in = %u\n", (unsigned int)main);
     
     free(direccionMemoria);
     
@@ -260,12 +260,12 @@ int main(int argc, char **argv)
 ```
 
 ``` console
-&globalVariable = 0x100001028
-&staticVariable = 0x10000102c
-&integerVariable = 0x7ffeefbff49c
-&direccionMemoria = 0x7ffeefbff490
-direccionMemoria = 0x1028352b0
-main = 0x100000e30
+&globalVariable is allocated in = 4136
+&staticVariable is allocated in = 4140
+&integerVariable is allocated in = 4022334620
+&direccionMemoria is allocated in = 4022334608
+the value of direccionMemoria is = 5534368
+main is allocated in = 3504
 Program ended with exit code: 0
 ```
 # Lets present the values with (unsigned int)
