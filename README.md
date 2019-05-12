@@ -15,7 +15,7 @@ Okay. Here are the advantages of pointers as I see it.
 
 Since pointers has many features but there are some disadvantages of pointers
 
--Failed to protect memory addresses (locations) - Since pointer can access direct memory so memory cannot be protected.
--Uninitialized pointers can cause of segmentation fault.
--Pointers variables are slower than normal variables.
--Pointers always required Free Memory for Dynamically Allocated Memory.
+- Failed to protect memory addresses (locations) - Since pointer can access direct memory so memory cannot be protected.
+- Uninitialized pointers can cause of segmentation fault.
+- Pointers variables are slower than normal variables.
+- Pointers always required Free Memory for Dynamically Allocated Memory.
