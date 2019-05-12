@@ -114,9 +114,9 @@ int main(int argc, char **argv)
 &globalVariable = 0x100001028
 &staticVariable = 0x10000102c
 &integerVariable = 0x7ffeefbff49c
-&p = 0x7ffeefbff490
-p = 0x100615c00
-main = 0x100000e50
+&direccionMemoria = 0x7ffeefbff490
+direccionMemoria = 0x1028352b0
+main = 0x100000e30
 Program ended with exit code: 0
 ```
 
