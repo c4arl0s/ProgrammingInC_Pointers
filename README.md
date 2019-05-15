@@ -2,11 +2,11 @@
 
 [1. Advantages of using pointers in C](https://github.com/c4arl0s/ProgrammingInC_Pointers/blob/master/README.md#advantages-of-using-pointers-in-c)
 
-[How pointers work](https://github.com/c4arl0s/ProgrammingInC_Pointers/blob/master/README.md#how-pointers-work)
+[2. How pointers work](https://github.com/c4arl0s/ProgrammingInC_Pointers/blob/master/README.md#how-pointers-work)
 
-[Pointer to pointer](https://github.com/c4arl0s/ProgrammingInC_Pointers/blob/master/README.md#pointer-to-pointer)
+[3. Pointer to pointer](https://github.com/c4arl0s/ProgrammingInC_Pointers/blob/master/README.md#pointer-to-pointer)
 
-[Pointer operators](https://github.com/c4arl0s/ProgrammingInC_Pointers/blob/master/README.md#pointer-operators)
+[4. Pointer operators](https://github.com/c4arl0s/ProgrammingInC_Pointers/blob/master/README.md#pointer-operators)
 
 # ProgrammingInC_Pointers
 ProgrammingInC_Pointers
