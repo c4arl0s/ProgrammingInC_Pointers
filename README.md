@@ -209,6 +209,20 @@ int main(int argc, const char * argv[]) {
 }
 ```
 
+``` console
+Ingresa el total de numeros:3
+Tamaño del tipo dato int es: 4 bytes
+Ingresa un número :1
+Ingresa un número :2
+Ingresa un número :3
+la direccion de memoria de 1 es: 5244240 
+la direccion de memoria de 2 es: 5244241 
+la direccion de memoria de 3 es: 5244242 
+
+la suma de todos los numeros es: 6 
+Program ended with exit code: 0
+```
+
 
 # Printing pointers
 
