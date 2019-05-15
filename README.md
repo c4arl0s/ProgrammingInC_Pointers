@@ -176,32 +176,31 @@ int main(int argc, const char * argv[]) {
     int totalNumbers;
     int sum=0;
     int sizeReservedSegment;
-    int sizeDataTypeInt;
-    // declara un apuntador
-    int *memoryAddress;
+    int sizeOfIntDataType;
+    // declare a pointer to handle the segment reserved of memory
+    int *memoryAddressPointer;
     
     printf("Ingresa el total de numeros:");
     scanf("%d", &totalNumbers);
     
-    sizeDataTypeInt=sizeof(int);
-    sizeReservedSegment=(totalNumbers)*(sizeDataTypeInt);
+    sizeOfIntDataType=sizeof(int);
+    sizeReservedSegment=(totalNumbers)*(sizeOfIntDataType);
     
-    printf("Tamaño del tipo dato int es: %d bytes\n",sizeDataTypeInt);
+    printf("Tamaño del tipo dato int es: %d bytes\n",sizeOfIntDataType);
     
     //malloc reserva en memoria el # bytes de la longitud deseada.
     //devuelve un puntero a la zona de memoria concedida
-    memoryAddress = malloc(sizeReservedSegment);
+    memoryAddressPointer = malloc(sizeReservedSegment);
     
-    
-    for(index=0; index<totalNumbers;index++)
+    for(index=0; index<totalNumbers; index++)
     {
         printf("Ingresa un número :");
-        scanf("%d",memoryAddress+index);
+        scanf("%d",memoryAddressPointer+index);
     }
-    for(index=0; index < totalNumbers;index++)
+    for(index=0; index < totalNumbers; index++)
     {
-        sum = sum + *(memoryAddress+index);
-        printf("la direccion de memoria de %d es: %u \n", *(memoryAddress+index), ((unsigned int)memoryAddress)+index);
+        sum = sum + *(memoryAddressPointer+index);
+        printf("la direccion de memoria de %d es: %u \n", *(memoryAddressPointer+index), ((unsigned int)memoryAddressPointer)+index);
     }
     printf("\nla suma de todos los numeros es: %d \n", sum);
     
